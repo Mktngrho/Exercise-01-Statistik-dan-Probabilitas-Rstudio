@@ -1,0 +1,115 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+Exercise FSD 01 Muchammad Okto Nugroho
+1. Soal STATISTIKA
+```{r}
+library(ISLR)
+```
+
+
+```{r}
+dataCredit <- Credit
+head(dataCredit)
+```
+```{r}
+mean(dataCredit$Rating)
+```
+```{r}
+mean(dataCredit$Cards)
+```
+```{r}
+mean(dataCredit$Age)
+```
+```{r}
+median(dataCredit$Rating)
+```
+```{r}
+median(dataCredit$Cards)
+```
+```{r}
+median(dataCredit$Age)
+```
+```{r}
+library(lsr)
+```
+
+
+```{r}
+modeOf(dataCredit$Gender)
+```
+
+
+```{r}
+modeOf(dataCredit$Student)
+```
+```{r}
+modeOf(dataCredit$Married)
+```
+#percentile 10
+```{r}
+quantile(x = dataCredit$Education, probs = 0.1)
+```
+#percentile 37
+```{r}
+quantile(x = dataCredit$Education, probs = 0.37)
+```
+#percentile 91
+```{r}
+quantile(x = dataCredit$Education, probs = 0.91)
+```
+#Quartile
+```{r}
+quantile(dataCredit$Balance, probs = c(0.25 , 0.50 , 0.75))
+```
+#corresponding boxplot
+```{r}
+boxplot(dataCredit$Education, horizontal = TRUE)
+```
+#Correlation
+```{r}
+newData <- data.frame(limit = dataCredit$Limit, rating = dataCredit$Rating)
+newData
+```
+#plot
+```{r}
+plot(newData$limit , newData$rating)
+```
+
+```{r}
+newData2 <- data.frame(age = dataCredit$Age, cards = dataCredit$Cards)
+newData2
+```
+#plot
+```{r}
+plot(newData2$age, newData2$cards)
+```
+
+```{r}
+newData3 <- data.frame(income = dataCredit$Income, education = dataCredit$Education)
+newData3
+```
+#plot
+```{r}
+plot(newData3$income, newData3$education)
+```
+
+2. Soal PROBABILITAS
+saya dan teman-teman melempar koin sebanyak 50 kali, dengan x sebagai jumlah mobil setelah melempar sebanyak 50 kali. Probabilitas mobil muncul dalam sekali lemparan adalah 1/2 berapakah probabilitas mobil x = 25 ?
+```{r}
+dbinom(x= 25, size = 50, prob = 1/2 )
+```
+X <= 25
+```{r}
+pbinom(q=25, size= 50, prob = 1/2)
+```
+Percentile ke-80
+```{r}
+qbinom(p = 0.8, size= 50, prob = 1/2)
+```
+30 Binomial random variabel
+```{r}
+rbinom(n= 30, size = 50, prob = 1/2)
+```
+
